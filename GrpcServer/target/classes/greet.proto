@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.faushine.grpc";
+
+service greet{
+    rpc hello(LoginRequest) returns (APIResponse);
+}
+
+message LoginRequest{
+    int32 greetMessage = 1;
+}
+
+message APIResponse{
+    string responseMessage = 1;
+    int32 responseCode = 2;
+}
