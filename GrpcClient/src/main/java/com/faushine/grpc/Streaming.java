@@ -19,14 +19,9 @@ public final class Streaming {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string streamMessage = 1;</code>
+     * <code>bytes streamMessage = 1;</code>
      */
-    String getStreamMessage();
-    /**
-     * <code>string streamMessage = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getStreamMessageBytes();
+    com.google.protobuf.ByteString getStreamMessage();
   }
   /**
    * Protobuf type {@code Message}
@@ -41,7 +36,7 @@ public final class Streaming {
       super(builder);
     }
     private Message() {
-      streamMessage_ = "";
+      streamMessage_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @Override
@@ -69,9 +64,8 @@ public final class Streaming {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
 
-              streamMessage_ = s;
+              streamMessage_ = input.readBytes();
               break;
             }
             default: {
@@ -107,37 +101,12 @@ public final class Streaming {
     }
 
     public static final int STREAMMESSAGE_FIELD_NUMBER = 1;
-    private volatile Object streamMessage_;
+    private com.google.protobuf.ByteString streamMessage_;
     /**
-     * <code>string streamMessage = 1;</code>
+     * <code>bytes streamMessage = 1;</code>
      */
-    public String getStreamMessage() {
-      Object ref = streamMessage_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        streamMessage_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string streamMessage = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStreamMessageBytes() {
-      Object ref = streamMessage_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b =
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        streamMessage_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.google.protobuf.ByteString getStreamMessage() {
+      return streamMessage_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -154,8 +123,8 @@ public final class Streaming {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getStreamMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, streamMessage_);
+      if (!streamMessage_.isEmpty()) {
+        output.writeBytes(1, streamMessage_);
       }
       unknownFields.writeTo(output);
     }
@@ -166,8 +135,9 @@ public final class Streaming {
       if (size != -1) return size;
 
       size = 0;
-      if (!getStreamMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, streamMessage_);
+      if (!streamMessage_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, streamMessage_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -333,7 +303,7 @@ public final class Streaming {
       @Override
       public Builder clear() {
         super.clear();
-        streamMessage_ = "";
+        streamMessage_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -410,9 +380,8 @@ public final class Streaming {
 
       public Builder mergeFrom(com.faushine.grpc.Streaming.Message other) {
         if (other == com.faushine.grpc.Streaming.Message.getDefaultInstance()) return this;
-        if (!other.getStreamMessage().isEmpty()) {
-          streamMessage_ = other.streamMessage_;
-          onChanged();
+        if (other.getStreamMessage() != com.google.protobuf.ByteString.EMPTY) {
+          setStreamMessage(other.getStreamMessage());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -443,43 +412,17 @@ public final class Streaming {
         return this;
       }
 
-      private Object streamMessage_ = "";
+      private com.google.protobuf.ByteString streamMessage_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>string streamMessage = 1;</code>
+       * <code>bytes streamMessage = 1;</code>
        */
-      public String getStreamMessage() {
-        Object ref = streamMessage_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          streamMessage_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
+      public com.google.protobuf.ByteString getStreamMessage() {
+        return streamMessage_;
       }
       /**
-       * <code>string streamMessage = 1;</code>
+       * <code>bytes streamMessage = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getStreamMessageBytes() {
-        Object ref = streamMessage_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          streamMessage_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string streamMessage = 1;</code>
-       */
-      public Builder setStreamMessage(
-          String value) {
+      public Builder setStreamMessage(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -489,25 +432,11 @@ public final class Streaming {
         return this;
       }
       /**
-       * <code>string streamMessage = 1;</code>
+       * <code>bytes streamMessage = 1;</code>
        */
       public Builder clearStreamMessage() {
 
         streamMessage_ = getDefaultInstance().getStreamMessage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string streamMessage = 1;</code>
-       */
-      public Builder setStreamMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-
-        streamMessage_ = value;
         onChanged();
         return this;
       }
@@ -1197,7 +1126,7 @@ public final class Streaming {
   static {
     String[] descriptorData = {
       "\n\017streaming.proto\" \n\007Message\022\025\n\rstreamMe" +
-      "ssage\030\001 \001(\t\"<\n\013APIResponse\022\027\n\017responseMe" +
+      "ssage\030\001 \001(\014\"<\n\013APIResponse\022\027\n\017responseMe" +
       "ssage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052.\n\tstr" +
       "eaming\022!\n\005hello\022\010.Message\032\014.APIResponse(" +
       "\001B\023\n\021com.faushine.grpcb\006proto3"

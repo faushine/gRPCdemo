@@ -7,7 +7,7 @@ service streaming{
 }
 
 message Message{
-    string streamMessage = 1;
+    bytes streamMessage = 1;
 }
 
 message APIResponse{

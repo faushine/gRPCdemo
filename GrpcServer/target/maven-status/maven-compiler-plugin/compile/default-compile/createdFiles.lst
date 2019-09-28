@@ -1,13 +1,14 @@
 GreetServer.class
 com/faushine/grpc/greetGrpc.class
+StreamingServer.class
 com/faushine/grpc/Greet$APIResponseOrBuilder.class
 com/faushine/grpc/greetGrpc$greetFileDescriptorSupplier.class
 com/faushine/grpc/Streaming$APIResponse$1.class
 com/faushine/grpc/greetGrpc$greetMethodDescriptorSupplier.class
+service/GreetService.class
 com/faushine/grpc/Streaming$APIResponse$Builder.class
 com/faushine/grpc/Greet$Request$1.class
 com/faushine/grpc/Streaming$Message.class
-user/GreetService.class
 com/faushine/grpc/Greet$APIResponse$1.class
 com/faushine/grpc/greetGrpc$greetBaseDescriptorSupplier.class
 com/faushine/grpc/Streaming$APIResponse.class
@@ -27,9 +28,11 @@ com/faushine/grpc/streamingGrpc$streamingImplBase.class
 com/faushine/grpc/streamingGrpc$streamingStub.class
 com/faushine/grpc/Greet$Request$Builder.class
 com/faushine/grpc/streamingGrpc$streamingMethodDescriptorSupplier.class
+service/StreamingService$1.class
 com/faushine/grpc/streamingGrpc$streamingBaseDescriptorSupplier.class
 com/faushine/grpc/Greet$APIResponse$Builder.class
 com/faushine/grpc/greetGrpc$greetImplBase.class
+service/StreamingService.class
 com/faushine/grpc/streamingGrpc$streamingFileDescriptorSupplier.class
 com/faushine/grpc/streamingGrpc$streamingBlockingStub.class
 com/faushine/grpc/Greet$1.class

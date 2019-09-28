@@ -1,4 +1,6 @@
-package user;
+package service;
+
+import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 import com.faushine.grpc.Streaming.APIResponse;
 import com.faushine.grpc.Streaming.Message;
@@ -14,21 +16,25 @@ public class StreamingService extends streamingImplBase {
 
   @Override
   public StreamObserver<Message> hello(StreamObserver<APIResponse> responseObserver) {
-    return new StreamObserver<Message>() {
+    return  new StreamObserver<Message>() {
       int size=0;
       @Override
       public void onNext(Message message) {
-        System.out.println(message.getStreamMessage());
+        size +=message.getStreamMessage().size();
+        System.out.println(size);
       }
 
       @Override
       public void onError(Throwable throwable) {
         responseObserver.onError(throwable);
+        System.out.println("1");
       }
 
       @Override
       public void onCompleted() {
-        responseObserver.onNext(APIResponse.newBuilder().setResponseMessage("The greet data has " + size+" byte").build());
+        responseObserver.onNext(APIResponse.newBuilder().setResponseMessage("data: "+size).build());
+        responseObserver.onCompleted();
+        System.out.println("Receive all messages");
       }
     };
   }

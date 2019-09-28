@@ -1,4 +1,4 @@
-package user;
+package service;
 
 
 import com.google.protobuf.ByteString;

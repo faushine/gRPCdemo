@@ -1,8 +1,8 @@
-/Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/user/GreetService.java
 /Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/com/faushine/grpc/Greet.java
 /Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/com/faushine/grpc/streamingGrpc.java
-/Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/user/StreamingService.java
+/Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/service/GreetService.java
 /Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/com/faushine/grpc/Streaming.java
+/Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/service/StreamingService.java
 /Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/com/faushine/grpc/greetGrpc.java
 /Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/StreamingServer.java
 /Users/faushine/Documents/gRPCdemo/GrpcServer/src/main/java/GreetServer.java
