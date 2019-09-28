@@ -3,11 +3,11 @@ syntax = "proto3";
 option java_package = "com.faushine.grpc";
 
 service greet{
-    rpc hello(LoginRequest) returns (APIResponse);
+    rpc hello(Request) returns (APIResponse);
 }
 
-message LoginRequest{
-    int32 greetMessage = 1;
+message Request{
+    bytes greetMessage = 1;
 }
 
 message APIResponse{

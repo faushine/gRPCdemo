@@ -27,28 +27,28 @@ public final class greetGrpc {
   public static final String SERVICE_NAME = "greet";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<com.faushine.grpc.Greet.LoginRequest,
+  private static volatile io.grpc.MethodDescriptor<com.faushine.grpc.Greet.Request,
       com.faushine.grpc.Greet.APIResponse> getHelloMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "hello",
-      requestType = com.faushine.grpc.Greet.LoginRequest.class,
+      requestType = com.faushine.grpc.Greet.Request.class,
       responseType = com.faushine.grpc.Greet.APIResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<com.faushine.grpc.Greet.LoginRequest,
+  public static io.grpc.MethodDescriptor<com.faushine.grpc.Greet.Request,
       com.faushine.grpc.Greet.APIResponse> getHelloMethod() {
-    io.grpc.MethodDescriptor<com.faushine.grpc.Greet.LoginRequest, com.faushine.grpc.Greet.APIResponse> getHelloMethod;
+    io.grpc.MethodDescriptor<com.faushine.grpc.Greet.Request, com.faushine.grpc.Greet.APIResponse> getHelloMethod;
     if ((getHelloMethod = greetGrpc.getHelloMethod) == null) {
       synchronized (greetGrpc.class) {
         if ((getHelloMethod = greetGrpc.getHelloMethod) == null) {
           greetGrpc.getHelloMethod = getHelloMethod = 
-              io.grpc.MethodDescriptor.<com.faushine.grpc.Greet.LoginRequest, com.faushine.grpc.Greet.APIResponse>newBuilder()
+              io.grpc.MethodDescriptor.<com.faushine.grpc.Greet.Request, com.faushine.grpc.Greet.APIResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "greet", "hello"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  com.faushine.grpc.Greet.LoginRequest.getDefaultInstance()))
+                  com.faushine.grpc.Greet.Request.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   com.faushine.grpc.Greet.APIResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new greetMethodDescriptorSupplier("hello"))
@@ -88,7 +88,7 @@ public final class greetGrpc {
 
     /**
      */
-    public void hello(com.faushine.grpc.Greet.LoginRequest request,
+    public void hello(com.faushine.grpc.Greet.Request request,
         io.grpc.stub.StreamObserver<com.faushine.grpc.Greet.APIResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getHelloMethod(), responseObserver);
     }
@@ -99,7 +99,7 @@ public final class greetGrpc {
             getHelloMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                com.faushine.grpc.Greet.LoginRequest,
+                com.faushine.grpc.Greet.Request,
                 com.faushine.grpc.Greet.APIResponse>(
                   this, METHODID_HELLO)))
           .build();
@@ -126,7 +126,7 @@ public final class greetGrpc {
 
     /**
      */
-    public void hello(com.faushine.grpc.Greet.LoginRequest request,
+    public void hello(com.faushine.grpc.Greet.Request request,
         io.grpc.stub.StreamObserver<com.faushine.grpc.Greet.APIResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getHelloMethod(), getCallOptions()), request, responseObserver);
@@ -153,7 +153,7 @@ public final class greetGrpc {
 
     /**
      */
-    public com.faushine.grpc.Greet.APIResponse hello(com.faushine.grpc.Greet.LoginRequest request) {
+    public com.faushine.grpc.Greet.APIResponse hello(com.faushine.grpc.Greet.Request request) {
       return blockingUnaryCall(
           getChannel(), getHelloMethod(), getCallOptions(), request);
     }
@@ -180,7 +180,7 @@ public final class greetGrpc {
     /**
      */
     public com.google.common.util.concurrent.ListenableFuture<com.faushine.grpc.Greet.APIResponse> hello(
-        com.faushine.grpc.Greet.LoginRequest request) {
+        com.faushine.grpc.Greet.Request request) {
       return futureUnaryCall(
           getChannel().newCall(getHelloMethod(), getCallOptions()), request);
     }
@@ -206,7 +206,7 @@ public final class greetGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_HELLO:
-          serviceImpl.hello((com.faushine.grpc.Greet.LoginRequest) request,
+          serviceImpl.hello((com.faushine.grpc.Greet.Request) request,
               (io.grpc.stub.StreamObserver<com.faushine.grpc.Greet.APIResponse>) responseObserver);
           break;
         default:

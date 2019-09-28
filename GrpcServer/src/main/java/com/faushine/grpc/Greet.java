@@ -14,29 +14,29 @@ public final class Greet {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface LoginRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:LoginRequest)
+  public interface RequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Request)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 greetMessage = 1;</code>
+     * <code>bytes greetMessage = 1;</code>
      */
-    int getGreetMessage();
+    com.google.protobuf.ByteString getGreetMessage();
   }
   /**
-   * Protobuf type {@code LoginRequest}
+   * Protobuf type {@code Request}
    */
-  public  static final class LoginRequest extends
+  public  static final class Request extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:LoginRequest)
-      LoginRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:Request)
+      RequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use LoginRequest.newBuilder() to construct.
-    private LoginRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Request.newBuilder() to construct.
+    private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private LoginRequest() {
-      greetMessage_ = 0;
+    private Request() {
+      greetMessage_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -44,7 +44,7 @@ public final class Greet {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LoginRequest(
+    private Request(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -63,9 +63,9 @@ public final class Greet {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
 
-              greetMessage_ = input.readInt32();
+              greetMessage_ = input.readBytes();
               break;
             }
             default: {
@@ -89,23 +89,23 @@ public final class Greet {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.faushine.grpc.Greet.internal_static_LoginRequest_descriptor;
+      return com.faushine.grpc.Greet.internal_static_Request_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.faushine.grpc.Greet.internal_static_LoginRequest_fieldAccessorTable
+      return com.faushine.grpc.Greet.internal_static_Request_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.faushine.grpc.Greet.LoginRequest.class, com.faushine.grpc.Greet.LoginRequest.Builder.class);
+              com.faushine.grpc.Greet.Request.class, com.faushine.grpc.Greet.Request.Builder.class);
     }
 
     public static final int GREETMESSAGE_FIELD_NUMBER = 1;
-    private int greetMessage_;
+    private com.google.protobuf.ByteString greetMessage_;
     /**
-     * <code>int32 greetMessage = 1;</code>
+     * <code>bytes greetMessage = 1;</code>
      */
-    public int getGreetMessage() {
+    public com.google.protobuf.ByteString getGreetMessage() {
       return greetMessage_;
     }
 
@@ -123,8 +123,8 @@ public final class Greet {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (greetMessage_ != 0) {
-        output.writeInt32(1, greetMessage_);
+      if (!greetMessage_.isEmpty()) {
+        output.writeBytes(1, greetMessage_);
       }
       unknownFields.writeTo(output);
     }
@@ -135,9 +135,9 @@ public final class Greet {
       if (size != -1) return size;
 
       size = 0;
-      if (greetMessage_ != 0) {
+      if (!greetMessage_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, greetMessage_);
+          .computeBytesSize(1, greetMessage_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -149,14 +149,14 @@ public final class Greet {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.faushine.grpc.Greet.LoginRequest)) {
+      if (!(obj instanceof com.faushine.grpc.Greet.Request)) {
         return super.equals(obj);
       }
-      com.faushine.grpc.Greet.LoginRequest other = (com.faushine.grpc.Greet.LoginRequest) obj;
+      com.faushine.grpc.Greet.Request other = (com.faushine.grpc.Greet.Request) obj;
 
       boolean result = true;
-      result = result && (getGreetMessage()
-          == other.getGreetMessage());
+      result = result && getGreetMessage()
+          .equals(other.getGreetMessage());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -169,75 +169,75 @@ public final class Greet {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + GREETMESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getGreetMessage();
+      hash = (53 * hash) + getGreetMessage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(byte[] data)
+    public static com.faushine.grpc.Greet.Request parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(java.io.InputStream input)
+    public static com.faushine.grpc.Greet.Request parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.faushine.grpc.Greet.Request parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseDelimitedFrom(
+    public static com.faushine.grpc.Greet.Request parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.faushine.grpc.Greet.LoginRequest parseFrom(
+    public static com.faushine.grpc.Greet.Request parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -250,7 +250,7 @@ public final class Greet {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.faushine.grpc.Greet.LoginRequest prototype) {
+    public static Builder newBuilder(com.faushine.grpc.Greet.Request prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -266,26 +266,26 @@ public final class Greet {
       return builder;
     }
     /**
-     * Protobuf type {@code LoginRequest}
+     * Protobuf type {@code Request}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:LoginRequest)
-        com.faushine.grpc.Greet.LoginRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:Request)
+        com.faushine.grpc.Greet.RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.faushine.grpc.Greet.internal_static_LoginRequest_descriptor;
+        return com.faushine.grpc.Greet.internal_static_Request_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.faushine.grpc.Greet.internal_static_LoginRequest_fieldAccessorTable
+        return com.faushine.grpc.Greet.internal_static_Request_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.faushine.grpc.Greet.LoginRequest.class, com.faushine.grpc.Greet.LoginRequest.Builder.class);
+                com.faushine.grpc.Greet.Request.class, com.faushine.grpc.Greet.Request.Builder.class);
       }
 
-      // Construct using com.faushine.grpc.Greet.LoginRequest.newBuilder()
+      // Construct using com.faushine.grpc.Greet.Request.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -303,7 +303,7 @@ public final class Greet {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        greetMessage_ = 0;
+        greetMessage_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -311,17 +311,17 @@ public final class Greet {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.faushine.grpc.Greet.internal_static_LoginRequest_descriptor;
+        return com.faushine.grpc.Greet.internal_static_Request_descriptor;
       }
 
       @java.lang.Override
-      public com.faushine.grpc.Greet.LoginRequest getDefaultInstanceForType() {
-        return com.faushine.grpc.Greet.LoginRequest.getDefaultInstance();
+      public com.faushine.grpc.Greet.Request getDefaultInstanceForType() {
+        return com.faushine.grpc.Greet.Request.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.faushine.grpc.Greet.LoginRequest build() {
-        com.faushine.grpc.Greet.LoginRequest result = buildPartial();
+      public com.faushine.grpc.Greet.Request build() {
+        com.faushine.grpc.Greet.Request result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -329,8 +329,8 @@ public final class Greet {
       }
 
       @java.lang.Override
-      public com.faushine.grpc.Greet.LoginRequest buildPartial() {
-        com.faushine.grpc.Greet.LoginRequest result = new com.faushine.grpc.Greet.LoginRequest(this);
+      public com.faushine.grpc.Greet.Request buildPartial() {
+        com.faushine.grpc.Greet.Request result = new com.faushine.grpc.Greet.Request(this);
         result.greetMessage_ = greetMessage_;
         onBuilt();
         return result;
@@ -370,17 +370,17 @@ public final class Greet {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.faushine.grpc.Greet.LoginRequest) {
-          return mergeFrom((com.faushine.grpc.Greet.LoginRequest)other);
+        if (other instanceof com.faushine.grpc.Greet.Request) {
+          return mergeFrom((com.faushine.grpc.Greet.Request)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.faushine.grpc.Greet.LoginRequest other) {
-        if (other == com.faushine.grpc.Greet.LoginRequest.getDefaultInstance()) return this;
-        if (other.getGreetMessage() != 0) {
+      public Builder mergeFrom(com.faushine.grpc.Greet.Request other) {
+        if (other == com.faushine.grpc.Greet.Request.getDefaultInstance()) return this;
+        if (other.getGreetMessage() != com.google.protobuf.ByteString.EMPTY) {
           setGreetMessage(other.getGreetMessage());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -398,11 +398,11 @@ public final class Greet {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.faushine.grpc.Greet.LoginRequest parsedMessage = null;
+        com.faushine.grpc.Greet.Request parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.faushine.grpc.Greet.LoginRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.faushine.grpc.Greet.Request) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -412,28 +412,31 @@ public final class Greet {
         return this;
       }
 
-      private int greetMessage_ ;
+      private com.google.protobuf.ByteString greetMessage_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>int32 greetMessage = 1;</code>
+       * <code>bytes greetMessage = 1;</code>
        */
-      public int getGreetMessage() {
+      public com.google.protobuf.ByteString getGreetMessage() {
         return greetMessage_;
       }
       /**
-       * <code>int32 greetMessage = 1;</code>
+       * <code>bytes greetMessage = 1;</code>
        */
-      public Builder setGreetMessage(int value) {
-        
+      public Builder setGreetMessage(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         greetMessage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 greetMessage = 1;</code>
+       * <code>bytes greetMessage = 1;</code>
        */
       public Builder clearGreetMessage() {
         
-        greetMessage_ = 0;
+        greetMessage_ = getDefaultInstance().getGreetMessage();
         onChanged();
         return this;
       }
@@ -450,41 +453,41 @@ public final class Greet {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:LoginRequest)
+      // @@protoc_insertion_point(builder_scope:Request)
     }
 
-    // @@protoc_insertion_point(class_scope:LoginRequest)
-    private static final com.faushine.grpc.Greet.LoginRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:Request)
+    private static final com.faushine.grpc.Greet.Request DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.faushine.grpc.Greet.LoginRequest();
+      DEFAULT_INSTANCE = new com.faushine.grpc.Greet.Request();
     }
 
-    public static com.faushine.grpc.Greet.LoginRequest getDefaultInstance() {
+    public static com.faushine.grpc.Greet.Request getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<LoginRequest>
-        PARSER = new com.google.protobuf.AbstractParser<LoginRequest>() {
+    private static final com.google.protobuf.Parser<Request>
+        PARSER = new com.google.protobuf.AbstractParser<Request>() {
       @java.lang.Override
-      public LoginRequest parsePartialFrom(
+      public Request parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginRequest(input, extensionRegistry);
+        return new Request(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<LoginRequest> parser() {
+    public static com.google.protobuf.Parser<Request> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<LoginRequest> getParserForType() {
+    public com.google.protobuf.Parser<Request> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.faushine.grpc.Greet.LoginRequest getDefaultInstanceForType() {
+    public com.faushine.grpc.Greet.Request getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1104,10 +1107,10 @@ public final class Greet {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_LoginRequest_descriptor;
+    internal_static_Request_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_LoginRequest_fieldAccessorTable;
+      internal_static_Request_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_APIResponse_descriptor;
   private static final 
@@ -1122,11 +1125,11 @@ public final class Greet {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013greet.proto\"$\n\014LoginRequest\022\024\n\014greetMe" +
-      "ssage\030\001 \001(\005\"<\n\013APIResponse\022\027\n\017responseMe" +
-      "ssage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052-\n\005gre" +
-      "et\022$\n\005hello\022\r.LoginRequest\032\014.APIResponse" +
-      "B\023\n\021com.faushine.grpcb\006proto3"
+      "\n\013greet.proto\"\037\n\007Request\022\024\n\014greetMessage" +
+      "\030\001 \001(\014\"<\n\013APIResponse\022\027\n\017responseMessage" +
+      "\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052(\n\005greet\022\037\n" +
+      "\005hello\022\010.Request\032\014.APIResponseB\023\n\021com.fa" +
+      "ushine.grpcb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1140,11 +1143,11 @@ public final class Greet {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_LoginRequest_descriptor =
+    internal_static_Request_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_LoginRequest_fieldAccessorTable = new
+    internal_static_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_LoginRequest_descriptor,
+        internal_static_Request_descriptor,
         new java.lang.String[] { "GreetMessage", });
     internal_static_APIResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);

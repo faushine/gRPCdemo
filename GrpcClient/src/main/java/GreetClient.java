@@ -1,3 +1,5 @@
+import com.google.protobuf.ByteString;
+
 import com.faushine.grpc.Greet.APIResponse;
 import com.faushine.grpc.Greet.LoginRequest;
 import com.faushine.grpc.greetGrpc;
@@ -10,7 +12,7 @@ import io.grpc.ManagedChannelBuilder;
  * @author Yuxin Fan
  * @create 2019-09-27
  */
-public class GrpcClient {
+public class GreetClient {
 
   public static void main(String[] args) {
     ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",9090).usePlaintext().build();
@@ -18,7 +20,9 @@ public class GrpcClient {
 
     greetBlockingStub userStub =  greetGrpc.newBlockingStub(channel);
     long start = System.currentTimeMillis();
-    LoginRequest loginRequest = LoginRequest.newBuilder().setGreetMessage(10).build();
+//    byte[] buff = new byte[1];
+    byte[] buff = new byte[1024*1024];
+    LoginRequest loginRequest = LoginRequest.newBuilder().setGreetMessage(ByteString.copyFrom(buff)).build();
     APIResponse response = userStub.hello(loginRequest);
     long rrt = System.currentTimeMillis()-start;
     System.out.println(response.getResponseMessage());

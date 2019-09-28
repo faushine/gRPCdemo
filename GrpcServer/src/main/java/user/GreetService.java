@@ -1,8 +1,9 @@
 package user;
 
 
+import com.google.protobuf.ByteString;
 import com.faushine.grpc.Greet.APIResponse;
-import com.faushine.grpc.Greet.LoginRequest;
+import com.faushine.grpc.Greet.Request;
 import com.faushine.grpc.greetGrpc.greetImplBase;
 
 import io.grpc.stub.StreamObserver;
@@ -14,12 +15,13 @@ import io.grpc.stub.StreamObserver;
 public class GreetService extends greetImplBase {
 
   @Override
-  public void hello(LoginRequest request, StreamObserver<APIResponse> responseObserver) {
+  public void hello(Request request, StreamObserver<APIResponse> responseObserver) {
     System.out.println("Request accepted.");
-    int msg = request.getGreetMessage();
+    ByteString msg = request.getGreetMessage();
     APIResponse.Builder response = APIResponse.newBuilder();
-    response.setResponseMessage("The greet message is " + msg);
+    response.setResponseMessage("The greet data has " + msg.size()+" byte");
     responseObserver.onNext(response.build());
     responseObserver.onCompleted();
   }
+
 }

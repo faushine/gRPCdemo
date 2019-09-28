@@ -19,9 +19,9 @@ public final class Greet {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 greetMessage = 1;</code>
+     * <code>bytes greetMessage = 1;</code>
      */
-    int getGreetMessage();
+    com.google.protobuf.ByteString getGreetMessage();
   }
   /**
    * Protobuf type {@code LoginRequest}
@@ -36,7 +36,7 @@ public final class Greet {
       super(builder);
     }
     private LoginRequest() {
-      greetMessage_ = 0;
+      greetMessage_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @Override
@@ -63,9 +63,9 @@ public final class Greet {
             case 0:
               done = true;
               break;
-            case 8: {
+            case 10: {
 
-              greetMessage_ = input.readInt32();
+              greetMessage_ = input.readBytes();
               break;
             }
             default: {
@@ -101,11 +101,11 @@ public final class Greet {
     }
 
     public static final int GREETMESSAGE_FIELD_NUMBER = 1;
-    private int greetMessage_;
+    private com.google.protobuf.ByteString greetMessage_;
     /**
-     * <code>int32 greetMessage = 1;</code>
+     * <code>bytes greetMessage = 1;</code>
      */
-    public int getGreetMessage() {
+    public com.google.protobuf.ByteString getGreetMessage() {
       return greetMessage_;
     }
 
@@ -123,8 +123,8 @@ public final class Greet {
     @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (greetMessage_ != 0) {
-        output.writeInt32(1, greetMessage_);
+      if (!greetMessage_.isEmpty()) {
+        output.writeBytes(1, greetMessage_);
       }
       unknownFields.writeTo(output);
     }
@@ -135,9 +135,9 @@ public final class Greet {
       if (size != -1) return size;
 
       size = 0;
-      if (greetMessage_ != 0) {
+      if (!greetMessage_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, greetMessage_);
+          .computeBytesSize(1, greetMessage_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -155,8 +155,8 @@ public final class Greet {
       com.faushine.grpc.Greet.LoginRequest other = (com.faushine.grpc.Greet.LoginRequest) obj;
 
       boolean result = true;
-      result = result && (getGreetMessage()
-          == other.getGreetMessage());
+      result = result && getGreetMessage()
+          .equals(other.getGreetMessage());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -169,7 +169,7 @@ public final class Greet {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + GREETMESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getGreetMessage();
+      hash = (53 * hash) + getGreetMessage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -303,7 +303,7 @@ public final class Greet {
       @Override
       public Builder clear() {
         super.clear();
-        greetMessage_ = 0;
+        greetMessage_ = com.google.protobuf.ByteString.EMPTY;
 
         return this;
       }
@@ -380,7 +380,7 @@ public final class Greet {
 
       public Builder mergeFrom(com.faushine.grpc.Greet.LoginRequest other) {
         if (other == com.faushine.grpc.Greet.LoginRequest.getDefaultInstance()) return this;
-        if (other.getGreetMessage() != 0) {
+        if (other.getGreetMessage() != com.google.protobuf.ByteString.EMPTY) {
           setGreetMessage(other.getGreetMessage());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -412,28 +412,31 @@ public final class Greet {
         return this;
       }
 
-      private int greetMessage_ ;
+      private com.google.protobuf.ByteString greetMessage_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>int32 greetMessage = 1;</code>
+       * <code>bytes greetMessage = 1;</code>
        */
-      public int getGreetMessage() {
+      public com.google.protobuf.ByteString getGreetMessage() {
         return greetMessage_;
       }
       /**
-       * <code>int32 greetMessage = 1;</code>
+       * <code>bytes greetMessage = 1;</code>
        */
-      public Builder setGreetMessage(int value) {
+      public Builder setGreetMessage(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
 
         greetMessage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 greetMessage = 1;</code>
+       * <code>bytes greetMessage = 1;</code>
        */
       public Builder clearGreetMessage() {
 
-        greetMessage_ = 0;
+        greetMessage_ = getDefaultInstance().getGreetMessage();
         onChanged();
         return this;
       }
@@ -1123,7 +1126,7 @@ public final class Greet {
   static {
     String[] descriptorData = {
       "\n\013greet.proto\"$\n\014LoginRequest\022\024\n\014greetMe" +
-      "ssage\030\001 \001(\005\"<\n\013APIResponse\022\027\n\017responseMe" +
+      "ssage\030\001 \001(\014\"<\n\013APIResponse\022\027\n\017responseMe" +
       "ssage\030\001 \001(\t\022\024\n\014responseCode\030\002 \001(\0052-\n\005gre" +
       "et\022$\n\005hello\022\r.LoginRequest\032\014.APIResponse" +
       "B\023\n\021com.faushine.grpcb\006proto3"

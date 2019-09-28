@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "com.faushine.grpc";
+
+service streaming{
+    rpc hello(stream Message) returns (APIResponse);
+}
+
+message Message{
+    string streamMessage = 1;
+}
+
+message APIResponse{
+    string responseMessage = 1;
+    int32 responseCode = 2;
+}
