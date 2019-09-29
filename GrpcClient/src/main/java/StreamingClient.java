@@ -6,7 +6,6 @@ import com.faushine.grpc.Streaming.Message;
 import com.faushine.grpc.streamingGrpc;
 import com.faushine.grpc.streamingGrpc.streamingStub;
 
-import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +22,7 @@ public class StreamingClient {
 
   private final ManagedChannel channel;
   private final streamingStub asyncStub;
+  public long rrt;
 
   /**
    * Construct client for accessing RouteGuide server at {@code host:port}.
@@ -39,7 +39,8 @@ public class StreamingClient {
     asyncStub = streamingGrpc.newStub(channel);
   }
 
-  public void recordRoute(byte[] buff) throws InterruptedException {
+  public void run(int size) throws InterruptedException {
+    byte[] buff = new byte[size];
     System.out.println("Start sending data...");
     final CountDownLatch finishLatch = new CountDownLatch(1);
     StreamObserver<APIResponse> responseObserver = new StreamObserver<APIResponse>() {
@@ -59,7 +60,8 @@ public class StreamingClient {
 
       @Override
       public void onCompleted() {
-        System.out.println("Finished trip in: " + (System.currentTimeMillis() - startTime) + " ms");
+        rrt = System.currentTimeMillis() - startTime;
+        System.out.println("Finished trip in: " + rrt + " ms");
         finishLatch.countDown();
       }
     };
@@ -91,8 +93,8 @@ public class StreamingClient {
     }
   }
 
-  public static void main(String[] args) throws InterruptedException {
-    StreamingClient client = new StreamingClient("localhost", 9000);
-    client.recordRoute(new byte[1024 * 1024]);
-  }
+//  public static void main(String[] args) throws InterruptedException {
+//    StreamingClient client = new StreamingClient("localhost", 9000);
+//    client.run(new byte[1024 * 1024]);
+//  }
 }
