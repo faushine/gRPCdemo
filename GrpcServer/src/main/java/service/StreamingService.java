@@ -1,7 +1,5 @@
 package service;
 
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
-
 import com.faushine.grpc.Streaming.APIResponse;
 import com.faushine.grpc.Streaming.Message;
 import com.faushine.grpc.streamingGrpc.streamingImplBase;
