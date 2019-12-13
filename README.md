@@ -1,3 +1,3 @@
 # gRPCdemo
 
-This is a demo of Java gRPC.
+A demo for Java gRPC.
